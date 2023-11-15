@@ -25,10 +25,14 @@
 document.addEventListener("DOMContentLoaded", function () {
     // ローカルストレージから状態を取得
     const statusA = localStorage.getItem("statusA") || "未完了";
+    const statusB = localStorage.getItem("statusB") || "未完了";
 
     // 初回訪問かどうかを確認し、状態を表示
     if (statusA === "完了") {
         document.getElementById("statusA").textContent = "A:完了";
+    }
+    if (statusB === "完了") {
+        document.getElementById("statusB").textContent = "B:完了";
     }
 
     // Google経由でのアクセスかどうかを確認し、状態を変更してローカルストレージに保存
@@ -36,6 +40,11 @@ document.addEventListener("DOMContentLoaded", function () {
     if (referrer.includes("https://stookia.github.io/home/") && statusA !== "完了") {
         document.getElementById("statusA").textContent = "A:完了";
         localStorage.setItem("statusA", "完了");
+    }
+    const referrerB = document.referrer;
+    if (referrerB.includes("https://stookia.github.io/home2/") && statusB !== "完了") {
+        document.getElementById("statusB").textContent = "B:完了";
+        localStorage.setItem("statusB", "完了");
     }
 });
     </script>
