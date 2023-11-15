@@ -1,59 +1,43 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Customized Welcome Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webサイト</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        div {
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+    </style>
 </head>
 <body>
+    <div id="statusA">A:未完了</div>
+    <div id="statusB">B:未完了</div>
 
-<script>
-  // リファラから特定のサイトのドメインを取得する関数
-  function getReferrerDomain(referrer) {
-    if (!referrer) {
-      return null;
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+    // ローカルストレージから状態を取得
+    const statusA = localStorage.getItem("statusA") || "未完了";
+
+    // 初回訪問かどうかを確認し、状態を表示
+    if (statusA === "完了") {
+        document.getElementById("statusA").textContent = "A:完了";
     }
 
-    const match = referrer.match(/:\/\/(www[0-9]?\.)?(.[^/:]+)/i);
-    if (match != null && match.length > 2 && typeof match[2] === 'string' && match[2].length > 0) {
-      return match[2];
-    } else {
-      return null;
+    // Google経由でのアクセスかどうかを確認し、状態を変更してローカルストレージに保存
+    const referrer = document.referrer;
+    if (referrer.includes("https://stookia.github.io/home/") && statusA !== "完了") {
+        document.getElementById("statusA").textContent = "A:完了";
+        localStorage.setItem("statusA", "完了");
     }
-  }
-
-  // ローカルストレージからデータを取得
-  const visitStatusA = localStorage.getItem('visitStatusA') || 'A: 未完了';
-  const visitStatusB = localStorage.getItem('visitStatusB') || 'B: 未完了';
-
-  // リファラを取得
-  const referrer = document.referrer || 'default-value';
-
-  // 特定のサイトからのアクセスの場合のドメイン
-  const siteA_domain = 'https://stookia.github.io/home/'; // Aのサイトのドメイン
-  const siteB_domain = 'siteB.com'; // Bのサイトのドメイン
-
-  // メッセージをデフォルトで「未完了」に設定
-  let messageA = 'A: 未完了';
-  let messageB = 'B: 未完了';
-
-  // 特定のサイトからのアクセスであるか確認
-  const siteDomain = getReferrerDomain(referrer);
-  if (siteDomain) {
-    if (siteDomain === siteA_domain) {
-      messageA = 'A: 完了';
-      // ローカルストレージに情報を保存
-      localStorage.setItem('visitStatusA', messageA);
-    } else if (siteDomain === siteB_domain) {
-      messageB = 'B: 完了';
-      // ローカルストレージに情報を保存
-      localStorage.setItem('visitStatusB', messageB);
-    }
-  }
-
-  // メッセージを表示
-  document.body.innerHTML = `<h1>${messageA}</h1><h1>${messageB}</h1>`;
-</script>
-
+});
+    </script>
 </body>
 </html>
