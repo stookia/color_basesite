@@ -18,6 +18,7 @@
     </style>
 </head>
 <body>
+    <div id="col1" style="color:#000000"></div>
     <div id="statusA">A:未完了</div>
     <div id="statusB">B:未完了</div>
 
@@ -26,7 +27,11 @@ document.addEventListener("DOMContentLoaded", function () {
     // ローカルストレージから状態を取得
     const statusA = localStorage.getItem("statusA") || "未完了";
     const statusB = localStorage.getItem("statusB") || "未完了";
+    const col1=localStorage.getItem("col1")||"color:#000000";
 
+    if(col1 !=="color:#000000"){
+        document.getElementById('col1').style=col1;
+    }
     // 初回訪問かどうかを確認し、状態を表示
     if (statusA === "完了") {
         document.getElementById("statusA").textContent = "A:完了";
