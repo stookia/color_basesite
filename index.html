@@ -29,32 +29,25 @@
   // リファラを取得
   const referrer = document.referrer || 'default-value';
 
-  // 特定のサイトからのアクセスの場合
-  const siteDomain = getReferrerDomain(referrer);
+  // 特定のサイトからのアクセスの場合のドメイン
+  const siteA_domain = 'https://stookia.github.io/home/'; // Aのサイトのドメイン
+  const siteB_domain = 'siteB.com'; // Bのサイトのドメイン
 
   // メッセージをデフォルトで「未完了」に設定
-  let messageA = visitStatusA;
-  let messageB = visitStatusB;
+  let messageA = 'A: 未完了';
+  let messageB = 'B: 未完了';
 
-  // 特定のサイトによってメッセージを変更
+  // 特定のサイトからのアクセスであるか確認
+  const siteDomain = getReferrerDomain(referrer);
   if (siteDomain) {
-    switch (siteDomain) {
-      case 'https://stookia.github.io/home/':
-        messageA = 'A: 完了';
-        // ローカルストレージに情報を保存
-        localStorage.setItem('visitStatusA', messageA);
-        break;
-      case 'siteB.com':
-        messageB = 'B: 完了';
-        // ローカルストレージに情報を保存
-        localStorage.setItem('visitStatusB', messageB);
-        break;
-      // 他のサイトに対する処理を追加
-      // case 'siteC.com':
-      //   message = 'C: 完了';
-      //   break;
-      default:
-        break;
+    if (siteDomain === siteA_domain) {
+      messageA = 'A: 完了';
+      // ローカルストレージに情報を保存
+      localStorage.setItem('visitStatusA', messageA);
+    } else if (siteDomain === siteB_domain) {
+      messageB = 'B: 完了';
+      // ローカルストレージに情報を保存
+      localStorage.setItem('visitStatusB', messageB);
     }
   }
 
