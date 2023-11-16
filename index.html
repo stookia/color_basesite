@@ -6,17 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Webサイト</title>
     <link href="style.css" rel="stylesheet" type="text/css">
-    <script>
-        function a(){
-        const key=Object.keys(localStorage).length;
-        if(key !==0){
-        var count=Math.floor(key/2);
-        document.getElementById('count').textContent=count;
-        }else{
-            document.getElementById('count').textContent=0;
-        }}
-        a();
-    </script>
 </head>
 <body>
     <span id="col1" class="pin" style="color:#000000"></span>
@@ -29,6 +18,15 @@
     <div id="statusB">B:未完了</div>
 
     <script>
+         document.addEventListener("DOMContentLoaded",function (){
+        const key=Object.keys(localStorage).length;
+        if(key !==0){
+        var count=Math.floor(key/2);
+        document.getElementById('count').textContent=count;
+        }else{
+            document.getElementById('count').textContent=0;
+        }});
+        
     document.addEventListener("DOMContentLoaded", function () {
     // ローカルストレージから状態を取得
     const statusA = localStorage.getItem("statusA") || "未完了";
