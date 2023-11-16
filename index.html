@@ -13,12 +13,8 @@
     <p style="color:#000000">色変わる？</p><br><br>
     <p>訪問地数</p><br>
     <p id="count" class="count">0</p>
-    <p>/50</p>
-    <div id="statusA">A:未完了</div>
-    <div id="statusB">B:未完了</div>
-
     <script>
-         document.addEventListener("DOMContentLoaded",function (){
+        document.addEventListener("DOMContentLoaded",function (){
         const key=Object.keys(localStorage).length;
         if(key !==0){
         var count=Math.floor(key/2);
@@ -26,6 +22,12 @@
         }else{
             document.getElementById('count').textContent=0;
         }});
+    </script>
+    <p>/50</p>
+    <div id="statusA">A:未完了</div>
+    <div id="statusB">B:未完了</div>
+
+    <script>
         
     document.addEventListener("DOMContentLoaded", function () {
     // ローカルストレージから状態を取得
