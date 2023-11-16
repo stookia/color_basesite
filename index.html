@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const col2=localStorage.getItem("col2")||"color:#000000";
     const key=Object.keys(localStorage);
 
-    document.getElementById("count").textContent=key/2;
+    document.getElementById("count").textContent=math.floor(key/2);
 
     if(col1 !=="color:#000000"){
         document.getElementById('col1').style=col1;
