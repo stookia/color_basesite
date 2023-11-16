@@ -6,6 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Webサイト</title>
     <link href="style.css" rel="stylesheet" type="text/css">
+    <script>
+        const key=Object.keys(localStorage).length;
+        if(key !==0){
+        var count=Math.floor(key/2);
+        document.getElementById('count').textContent=count;
+        }else{
+            document.getElementById('count').textContent=0;
+        }
 </head>
 <body>
     <span id="col1" class="pin" style="color:#000000"></span>
@@ -24,14 +32,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const statusB = localStorage.getItem("statusB") || "未完了";
     const col1=localStorage.getItem("col1")||"color:#000000";
     const col2=localStorage.getItem("col2")||"color:#000000";
-    const key=Object.keys(localStorage).length;
     
-    if(key !==0){
-        var count=Math.floor(key/2);
-        document.getElementById('count').textContent=count;
-    }else{
-        document.getElementById('count').textContent=0;
-    }
+    
     
     if(col1 !=="color:#000000"){
         document.getElementById('col1').style=col1;
