@@ -28,7 +28,9 @@ document.addEventListener("DOMContentLoaded", function () {
     
     if(key !==0){
         var count=Math.floor(key/2);
-        document.getElementById("count").textContent=count;
+        document.getElementById('count').textContent=count;
+    }else{
+        document.getElementById('count').textContent=0;
     }
     
     if(col1 !=="color:#000000"){
