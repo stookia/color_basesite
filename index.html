@@ -7,13 +7,14 @@
     <title>Webサイト</title>
     <link href="style.css" rel="stylesheet" type="text/css">
     <script>
+        function(){
         const key=Object.keys(localStorage).length;
         if(key !==0){
         var count=Math.floor(key/2);
         document.getElementById('count').textContent=count;
         }else{
             document.getElementById('count').textContent=0;
-        }
+        }}
     </script>
 </head>
 <body>
@@ -27,7 +28,7 @@
     <div id="statusB">B:未完了</div>
 
     <script>
-document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener("DOMContentLoaded", function () {
     // ローカルストレージから状態を取得
     const statusA = localStorage.getItem("statusA") || "未完了";
     const statusB = localStorage.getItem("statusB") || "未完了";
