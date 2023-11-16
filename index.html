@@ -10,7 +10,10 @@
 <body>
     <span id="col1" class="pin" style="color:#000000"></span>
     <span id="col2" class="pin" style="color:#000000"></span>
-    <p style="color:#000000">色変わる？</p>
+    <p style="color:#000000">色変わる？</p><br><br>
+    <p>訪問地数</p><br>
+    <p id="count" class="count">0</p>
+    <p>/50</p>
     <div id="statusA">A:未完了</div>
     <div id="statusB">B:未完了</div>
 
@@ -21,6 +24,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const statusB = localStorage.getItem("statusB") || "未完了";
     const col1=localStorage.getItem("col1")||"color:#000000";
     const col2=localStorage.getItem("col2")||"color:#000000";
+    const key=Object.keys(localStorage);
+
+    document.getElementById("count").textContent=key/2;
 
     if(col1 !=="color:#000000"){
         document.getElementById('col1').style=col1;
