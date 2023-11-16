@@ -17,9 +17,11 @@
         document.addEventListener("DOMContentLoaded",function (){
         const key=Object.keys(localStorage).length;
         if(key !==0){
-        var count=Math.floor(key/2);
+        const count=Math.floor(key/2);
         document.getElementById('count').textContent=key;
-        });
+        }else{
+            document.getElementById('count')=0;
+        }});
     </script>
     <p>/50</p>
     <div id="statusA">A:未完了</div>
