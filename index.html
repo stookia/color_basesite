@@ -19,10 +19,7 @@
         if(key !==0){
         var count=Math.floor(key/2);
         document.getElementById('count').textContent=count;
-        }else{
-            document.getElementById('count').textContent=0;
-        }}
-        );
+        });
     </script>
     <p>/50</p>
     <div id="statusA">A:未完了</div>
@@ -65,7 +62,6 @@
         localStorage.setItem("statusB", "完了");
     }
 });
-         location.reload(true);
     </script>
 </body>
 </html>
