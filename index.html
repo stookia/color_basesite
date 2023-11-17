@@ -28,42 +28,48 @@
     <div id="statusB">B:未完了</div>
 
     <script>
+        document.addEventListener("DOMContentLoaded", function () {
+        // ローカルストレージから状態を取得
+            const statusA = localStorage.getItem("statusA") || "未完了";
+            const statusB = localStorage.getItem("statusB") || "未完了";
+            const col1=localStorage.getItem("col1")||"color:#000000";
+            const col2=localStorage.getItem("col2")||"color:#000000";
+            const key=Object.keys(localStorage).length;
         
-    document.addEventListener("DOMContentLoaded", function () {
-    // ローカルストレージから状態を取得
-    const statusA = localStorage.getItem("statusA") || "未完了";
-    const statusB = localStorage.getItem("statusB") || "未完了";
-    const col1=localStorage.getItem("col1")||"color:#000000";
-    const col2=localStorage.getItem("col2")||"color:#000000";
+            if(key !==0){
+                const count=Math.floor(key/2);
+                document.getElementById('count').textContent=count;
+                }else{
+                    document.getElementById('count')=0;
+            }
+        
+        
+            if(col1 !=="color:#000000"){
+                document.getElementById('col1').style=col1;
+            }
+            if(col2 !=="color:#000000"){
+                document.getElementById('col2').style=col2;
+            }
+            // 初回訪問かどうかを確認し、状態を表示
+            if (statusA === "完了") {
+                document.getElementById("statusA").textContent = "A:完了";
+            }
+            if (statusB === "完了") {
+                document.getElementById("statusB").textContent = "B:完了";
+            }
     
-    
-    
-    if(col1 !=="color:#000000"){
-        document.getElementById('col1').style=col1;
-    }
-    if(col2 !=="color:#000000"){
-        document.getElementById('col2').style=col2;
-    }
-    // 初回訪問かどうかを確認し、状態を表示
-    if (statusA === "完了") {
-        document.getElementById("statusA").textContent = "A:完了";
-    }
-    if (statusB === "完了") {
-        document.getElementById("statusB").textContent = "B:完了";
-    }
-
-    // Google経由でのアクセスかどうかを確認し、状態を変更してローカルストレージに保存
-    const referrer = document.referrer;
-    if (referrer.includes("https://stookia.github.io/home/") && statusA !== "完了") {
-        document.getElementById("statusA").textContent = "A:完了";
-        localStorage.setItem("statusA", "完了");
-    }
-    const referrerB = document.referrer;
-    if (referrerB.includes("https://stookia.github.io/home2/") && statusB !== "完了") {
-        document.getElementById("statusB").textContent = "B:完了";
-        localStorage.setItem("statusB", "完了");
-    }
-});
+            // Google経由でのアクセスかどうかを確認し、状態を変更してローカルストレージに保存
+            const referrer = document.referrer;
+            if (referrer.includes("https://stookia.github.io/home/") && statusA !== "完了") {
+                document.getElementById("statusA").textContent = "A:完了";
+                localStorage.setItem("statusA", "完了");
+            }
+            const referrerB = document.referrer;
+            if (referrerB.includes("https://stookia.github.io/home2/") && statusB !== "完了") {
+                document.getElementById("statusB").textContent = "B:完了";
+                localStorage.setItem("statusB", "完了");
+            }
+    });
     </script>
     <script>location.relaod();</script>
 </body>
