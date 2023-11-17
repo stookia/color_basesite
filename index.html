@@ -13,16 +13,6 @@
     <p style="color:#000000">色変わる？</p><br><br>
     <p>訪問地数</p><br>
     <p id="count" class="count">0</p>
-    <script>
-        document.addEventListener("DOMContentLoaded",function (){
-        const key=Object.keys(localStorage).length;
-        if(key !==0){
-        const count=Math.floor(key/2);
-        document.getElementById('count').textContent=count;
-        }else{
-            document.getElementById('count')=0;
-        }});
-    </script>
     <p>/50</p>
     <div id="statusA">A:未完了</div>
     <div id="statusB">B:未完了</div>
@@ -34,14 +24,7 @@
             const statusB = localStorage.getItem("statusB") || "未完了";
             const col1=localStorage.getItem("col1")||"color:#000000";
             const col2=localStorage.getItem("col2")||"color:#000000";
-            const key=Object.keys(localStorage).length;
-        
-            if(key !==0){
-                const count=Math.floor(key/2);
-                document.getElementById('count').textContent=count;
-                }else{
-                    document.getElementById('count')=0;
-            }
+            
         
         
             if(col1 !=="color:#000000"){
@@ -68,6 +51,15 @@
             if (referrerB.includes("https://stookia.github.io/home2/") && statusB !== "完了") {
                 document.getElementById("statusB").textContent = "B:完了";
                 localStorage.setItem("statusB", "完了");
+            }
+
+            const key=Object.keys(localStorage).length;
+        
+            if(key !==0){
+                const count=Math.floor(key/2);
+                document.getElementById('count').textContent=count;
+                }else{
+                    document.getElementById('count')=0;
             }
     });
     </script>
