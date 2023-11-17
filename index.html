@@ -1,21 +1,24 @@
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Webサイト</title>
-    <link href="style.css" rel="stylesheet" type="text/css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Webサイト</title>
+<link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <a id="col1" class="pin" style="color:#000000" href="https://stookia.github.io/home/"></a>
-    <a id="col2" class="pin" style="color:#000000" href="https://stookia.github.io/home2/"></a>
-    <p style="color:#000000">色変わる？</p><br><br>
+	<div class="map">
+		<a id="col1" class="pin" style="color:#000000" href="https://stookia.github.io/home/"></a>
+		<a id="col2" class="pin" style="color:#000000" href="https://stookia.github.io/home2/"></a>
+		<img src="image/map.png">
+	</div>
+	
+<p style="color:#000000">色変わる？</p><br><br>
     <p>訪問地数</p><br>
     <p id="count" class="count">0</p>
     <p>/50</p>
-    <div id="statusA">A:未完了</div>
-    <div id="statusB">B:未完了</div>
+    <div class="spot" id="statusA">A:未完了</div>
+    <div class="spot" id="statusB">B:未完了</div>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
