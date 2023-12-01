@@ -36,7 +36,7 @@
         　　if(col2 !=="color:#000000"){
         	document.getElementById('col2').style=col2;
         　　}
-		
+	*/	
             // 初回訪問かどうかを確認し、状態を表示
             if (statusA === "完了") {
                 document.getElementById("statusA").textContent = "A:完了";
@@ -44,7 +44,7 @@
             if (statusB === "完了") {
                 document.getElementById("statusB").textContent = "B:完了";
             }
-    */
+	    
             // Google経由でのアクセスかどうかを確認し、状態を変更してローカルストレージに保存
             const referrer = document.referrer;
             if (referrer.includes("https://stookia.github.io/home/") && statusA !== "完了") {
